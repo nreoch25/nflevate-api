@@ -1,0 +1,17 @@
+app:
+  build: .
+  ports:
+    - "8000:8000"
+  links:
+   - mongo
+mongodata:
+  image: mongo:latest
+  volumes:
+    - /data/db
+  command: --break-mongo
+mongo:
+  image: mongo:latest
+  ports:
+    - "28001:27017"
+  volumes_from:
+    - mongodata

@@ -1,0 +1,33 @@
+{
+  "name": "nflevate-api",
+  "version": "1.0.0",
+  "description": "API for NFLevate app",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha || true",
+    "start": "nodemon index.js",
+    "scrape": "casperjs services/casper.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "casperjs": "^1.1.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "jwt-simple": "^0.5.0",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.9.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.7"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.3.1",
+    "supertest": "^1.2.0"
+  }
+}

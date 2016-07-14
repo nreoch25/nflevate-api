@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - 6.0.0
+build:
+  ci:
+    - sudo pip install -U docker-compose
+    - docker-compose up -d
+    - docker ps
+  post_ci:
+    - docker build -t nreoch9/nflevate-api:latest .
+    - docker push nreoch9/nflevate-api:latest
+integrations:
+  hub:
+    - integrationName: nreoch9-docker
+      type: docker
