@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha || true",
     "start": "nodemon index.js",
-    "scrape": "casperjs services/casper.js"
+    "scrape": "casperjs services/casper.js",
+    "scrape2": "casperjs services/casper2.js"
   },
   "author": "",
   "license": "ISC",

@@ -10,12 +10,16 @@ const cors = require("cors");
 const fs = require("fs");
 const players = require("./controllers/players");
 // DB Setup
-mongoose.connect("mongodb://"+ (process.env.MONGO_PORT_27017_TCP_ADDR || "localhost")  + ":27017/nflevate", function() {
-  console.log("mongo connected");
+mongoose.connect("mongodb://"+ (process.env.MONGO_PORT_27017_TCP_ADDR || "localhost")  + ":27017/nflevate", function(err) {
+  if(err) {
+    console.log("Mongo not connecting"); 
+  } else {
+    console.log("MongoDB connected");
+  }
 });
 
 // Read rankings data and push to mongodb
-const rankings = JSON.parse(fs.readFileSync("data/rankings.json", "utf8"));
+const rankings = JSON.parse(fs.readFileSync("data/rankings2.json", "utf8"));
 players.pushData(rankings);
 
 // App Setup

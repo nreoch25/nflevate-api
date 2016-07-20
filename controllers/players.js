@@ -20,7 +20,14 @@ exports.getByPosition = function(req, res) {
     }
   });
 }
-
+function getByeWeek(player) {
+  let bye = player.bye;
+  return bye.match(/\d+/g);
+}
+function getTeam(player) {
+  let team = player.team;
+  return team.replace(/ *\([^)]*\) */g, "");
+}
 exports.pushData = function(players) {
   Player.remove({}, function(err) {
     if(err) {
@@ -28,11 +35,11 @@ exports.pushData = function(players) {
     } else {
       players.map(function(item) {
         const player = new Player({
-          bye: item.bye,
+          bye: getByeWeek(item),
           name: item.name,
           pos: item.pos,
           rank: item.rank,
-          team: item.team
+          team: getTeam(item)
         });
         player.save(function(err) {});
       });
